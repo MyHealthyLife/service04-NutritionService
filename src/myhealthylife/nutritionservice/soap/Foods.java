@@ -86,5 +86,14 @@ public interface Foods {
     @WebMethod(operationName="deleteFoodType")
     @WebResult(name="idFoodType") 
     public long deleteFoodType(@WebParam(name="typeId") long id);
+    
+    
+    /**
+     * Gets the entire set of types for the foods
+     * @return A list containing the types available in the database
+     */
+    @WebMethod(operationName="readFoodTypeList")
+    @WebResult(name="foodTypes") 
+    public FoodTypeList readFoodTypeList();
 
 }

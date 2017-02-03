@@ -160,5 +160,18 @@ public class FoodsImpl implements Foods {
 		
 	}
 	
+	
+	/**
+	 * Gets the entire set of types for the foods
+	 */
+	@Override
+	public FoodTypeList readFoodTypeList() {
+		
+		// Gets all the types and adds them to the list
+		FoodTypeList foodTypes = new FoodTypeList();
+    	foodTypes.setFoodType(FoodType.getAll());
+    	
+        return foodTypes;
+	}
 
 }
