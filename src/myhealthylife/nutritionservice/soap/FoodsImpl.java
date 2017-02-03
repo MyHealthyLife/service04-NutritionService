@@ -161,6 +161,29 @@ public class FoodsImpl implements Foods {
 	}
 	
 	
+
+	/**
+	 * Updates an existing type of food
+	 */
+	@Override
+	public FoodType updateFoodType(FoodType foodTypeToUpdate) {
+		
+		// Gets the id of the type to update
+    	Long foodTypeId = foodTypeToUpdate.getIdFoodType();
+    	
+    	// Updates the data of the type
+    	FoodType currentFoodType = FoodType.getFoodTypeById(foodTypeToUpdate.getIdFoodType());
+    	
+    	if(foodTypeToUpdate.getCategory()!=null) {
+    		currentFoodType.setCategory(foodTypeToUpdate.getCategory());
+    	}
+    	
+    	// Update query
+        FoodType.updateFoodType(currentFoodType);
+        return FoodType.getFoodTypeById(foodTypeId);
+	}
+	
+	
 	/**
 	 * Gets the entire set of types for the foods
 	 */
@@ -173,5 +196,7 @@ public class FoodsImpl implements Foods {
     	
         return foodTypes;
 	}
+
+
 
 }

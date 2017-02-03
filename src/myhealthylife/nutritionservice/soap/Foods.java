@@ -89,6 +89,16 @@ public interface Foods {
     
     
     /**
+     * Deletes a type already present in the database
+     * @param id The identifier of the type the user wants to delete
+     * @return The identifier of the type the user just deleted
+     */
+    @WebMethod(operationName="updateFoodType")
+    @WebResult(name="foodType") 
+    public FoodType updateFoodType(@WebParam(name="foodType") FoodType foodTypeToUpdate);
+    
+    
+    /**
      * Gets the entire set of types for the foods
      * @return A list containing the types available in the database
      */
