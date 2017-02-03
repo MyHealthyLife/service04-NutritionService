@@ -53,7 +53,21 @@ public class FoodsImpl implements Foods {
 	}
 	
 
+	
+	/**
+	 * Creates a new food object and saves it into the database
+	 */
+	@Override
+	public Food createFood(Food foodToSave) {
+    	
+    	// Saves the new food
+    	Food.saveFood(foodToSave);
 
+    	// Gets the food just inserted
+    	foodToSave = Food.getFoodById(foodToSave.getIdFood());
+    	
+    	return foodToSave;
 
+	}
 
 }

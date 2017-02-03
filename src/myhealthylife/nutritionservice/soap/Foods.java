@@ -25,7 +25,7 @@ public interface Foods {
 	 * @return The FoodList object, containing all the foods in the database
 	 */
 	@WebMethod(operationName="readFoodList")
-    @WebResult(name="food") 
+    @WebResult(name="foods") 
     public FoodList readFoodList();
 	
 	/**
@@ -37,5 +37,14 @@ public interface Foods {
     @WebResult(name="food") 
     public Food readFood(@WebParam(name="foodId") long id);
     
+    
+    /**
+     * Creates a new food object and saves it into the database
+     * @param foodToSave The food the client wants to save into the database
+     * @return The Food object just inserted in the database
+     */
+    @WebMethod(operationName="createFood")
+    @WebResult(name="food") 
+    public Food createFood(@WebParam(name="food") Food foodToSave);
 
 }
