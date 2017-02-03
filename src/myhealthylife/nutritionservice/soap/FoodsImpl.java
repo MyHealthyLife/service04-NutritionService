@@ -35,7 +35,22 @@ public class FoodsImpl implements Foods {
 	}
 
 	
-
+	/**
+	 * Gets a specific food based on its identifier
+	 */
+	@Override
+	public Food readFood(long id) {
+		
+		// Gets the specific food the client requested
+        Food food = Food.getFoodById(id);
+        if (food!=null) {
+            System.out.println("---> Found Food by id = "+id+" => "+food.getName());
+        } else {
+            System.out.println("---> Didn't find any Food with  id = "+id);
+        }
+        return food;
+		
+	}
 	
 
 

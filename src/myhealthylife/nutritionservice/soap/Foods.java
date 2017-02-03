@@ -28,7 +28,14 @@ public interface Foods {
     @WebResult(name="food") 
     public FoodList readFoodList();
 	
-	
+	/**
+	 * Gets a specific food based on its identifier
+	 * @param id The identifier of the food
+	 * @return The Food object identified by id
+	 */
+    @WebMethod(operationName="readFood")
+    @WebResult(name="food") 
+    public Food readFood(@WebParam(name="foodId") long id);
     
 
 }
