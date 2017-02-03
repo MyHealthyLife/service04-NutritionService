@@ -116,5 +116,26 @@ public class FoodsImpl implements Foods {
 		
 	}
 	
+	
+	/**
+	 * Creates a new type for foods
+	 */
+	@Override
+	public FoodType createFoodType(String typeName) {
+		
+		// Creates a new type
+		FoodType foodTypeToSave = new FoodType();
+		foodTypeToSave.setCategory(typeName);
+
+		// Saves the new type
+    	foodTypeToSave = FoodType.saveFoodType(foodTypeToSave);
+
+    	// Gets the type just inserted and returns it
+    	FoodType foodTypeNew = FoodType.getFoodTypeById(foodTypeToSave.getIdFoodType());
+    	
+    	return foodTypeNew;
+    	
+	}
+	
 
 }

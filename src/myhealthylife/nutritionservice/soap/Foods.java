@@ -66,5 +66,15 @@ public interface Foods {
     @WebMethod(operationName="updateFood")
     @WebResult(name="food") 
     public Food updateFood(@WebParam(name="food") Food foodToUpdate);
+    
+    
+    /**
+     * Creates a new type for foods
+     * @param typeName The name of the type the user wants to create
+     * @return The type object just created
+     */
+    @WebMethod(operationName="createFoodType")
+    @WebResult(name="foodType") 
+    public FoodType createFoodType(@WebParam(name="typeName") String typeName);
 
 }
