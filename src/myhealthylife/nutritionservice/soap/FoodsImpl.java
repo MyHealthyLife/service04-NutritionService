@@ -137,5 +137,28 @@ public class FoodsImpl implements Foods {
     	
 	}
 	
+	
+	/**
+	 * Deletes a type already present in the database
+	 */
+	@Override
+	public long deleteFoodType(long id) {
+
+		// Gets the food type from the database specified by the identifier
+		FoodType foodType = FoodType.getFoodTypeById(id);
+        
+        // If the type exists then it removes it
+        if (foodType!=null) {
+            FoodType.removeFoodType(foodType);
+            return foodType.getIdFoodType();
+        }
+        
+        // Otherwise it returns an error code
+        else {
+            return -1;
+        }
+		
+	}
+	
 
 }

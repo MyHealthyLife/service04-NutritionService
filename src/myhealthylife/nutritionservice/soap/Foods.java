@@ -76,5 +76,15 @@ public interface Foods {
     @WebMethod(operationName="createFoodType")
     @WebResult(name="foodType") 
     public FoodType createFoodType(@WebParam(name="typeName") String typeName);
+    
+    
+    /**
+     * Deletes a type already present in the database
+     * @param id The identifier of the type the user wants to delete
+     * @return The identifier of the type the user just deleted
+     */
+    @WebMethod(operationName="deleteFoodType")
+    @WebResult(name="idFoodType") 
+    public long deleteFoodType(@WebParam(name="typeId") long id);
 
 }
