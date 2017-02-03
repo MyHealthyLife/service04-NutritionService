@@ -56,5 +56,15 @@ public interface Foods {
     @WebMethod(operationName="deleteFood")
     @WebResult(name="idFood") 
     public long deleteFood(@WebParam(name="foodId") long id);
+    
+    
+    /**
+     * Updates an existing food in the database
+     * @param foodToUpdate The food object the user wants to update
+     * @return The food object just updated
+     */
+    @WebMethod(operationName="updateFood")
+    @WebResult(name="food") 
+    public Food updateFood(@WebParam(name="food") Food foodToUpdate);
 
 }

@@ -92,5 +92,29 @@ public class FoodsImpl implements Foods {
         }
 		
 	}
+	
+	
+	/**
+	 * Updates an existing food in the database
+	 */
+	@Override
+	public Food updateFood(Food foodToUpdate) {
+		
+		// Gets the id of the food to update
+    	Long foodId = foodToUpdate.getIdFood();
+    	
+    	// Updates the data of the food
+    	Food currentFood = Food.getFoodById(foodToUpdate.getIdFood());
+    	
+    	if(foodToUpdate.getName()!=null) {
+    		currentFood.setName(foodToUpdate.getName());
+    	}
+    	
+    	// Update query
+        Food.updateFood(currentFood);
+        return Food.getFoodById(foodId);
+		
+	}
+	
 
 }
