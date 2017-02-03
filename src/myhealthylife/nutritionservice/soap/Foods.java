@@ -46,5 +46,15 @@ public interface Foods {
     @WebMethod(operationName="createFood")
     @WebResult(name="food") 
     public Food createFood(@WebParam(name="food") Food foodToSave);
+    
+    
+    /**
+     * Deletes a food already present in the database
+     * @param id The identifier of the food to delete
+     * @return The identifier of the food just deleted
+     */
+    @WebMethod(operationName="deleteFood")
+    @WebResult(name="idFood") 
+    public long deleteFood(@WebParam(name="foodId") long id);
 
 }

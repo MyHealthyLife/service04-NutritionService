@@ -69,5 +69,28 @@ public class FoodsImpl implements Foods {
     	return foodToSave;
 
 	}
+	
+	
+	/**
+	 * Deletes a food already present in the database
+	 */
+	@Override
+	public long deleteFood(long id) {
+		
+		// Gets the food from the database specified by the identifier
+		Food food = Food.getFoodById(id);
+        
+        // If the food exists then it removes it
+        if (food!=null) {
+            Food.removeFood(food);
+            return food.getIdFood();
+        }
+        
+        // Otherwise it returns an error code
+        else {
+            return -1;
+        }
+		
+	}
 
 }
