@@ -33,7 +33,7 @@ public class Food implements Serializable {
 	private String name;
 	
 	@Column(name="calories")
-	private int calories;
+	private Integer calories;
 	
 	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="idFoodType",referencedColumnName="idFoodType",insertable=true,updatable=true)
@@ -64,12 +64,12 @@ public class Food implements Serializable {
 	}
 
 	
-	public int getCalories() {
+	public Integer getCalories() {
 		return calories;
 	}
 
 
-	public void setCalories(int calories) {
+	public void setCalories(Integer calories) {
 		this.calories = calories;
 	}
 

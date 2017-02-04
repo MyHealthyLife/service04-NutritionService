@@ -254,7 +254,7 @@ public class FoodsImpl implements Foods {
 
 
 	@Override
-	public FoodList findFoodByTypeFiltered(String foodType, int maxCal) {
+	public FoodList findFoodByTypeFiltered(String foodType, Integer maxCal) {
 		
 		// Lists used to filter results
 		List<Food> foodList = this.readFoodList().getFood();

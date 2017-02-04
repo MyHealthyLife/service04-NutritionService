@@ -136,6 +136,6 @@ public interface Foods {
      */
     @WebMethod(operationName="findFoodByTypeFiltered")
     @WebResult(name="foods") 
-    public FoodList findFoodByTypeFiltered(@WebParam(name="typeName") String foodType, @WebParam(name="maxCal") int maxCal);
+    public FoodList findFoodByTypeFiltered(@WebParam(name="typeName") String foodType, @WebParam(name="maxCal") Integer maxCal);
 
 }
