@@ -124,7 +124,7 @@ public interface Foods {
      * @return A set containing all the foods having that type
      */
     @WebMethod(operationName="findFoodByType")
-    @WebResult(name="food") 
+    @WebResult(name="foods") 
     public FoodList findFoodByType(@WebParam(name="typeName") String foodType);
 
 }
