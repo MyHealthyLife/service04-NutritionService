@@ -104,8 +104,8 @@
             </copy>
         </target>
         <target name="start">
-            <echo message="app start myhealthylife.sentencegenerator.endpoint.NutritionPublisher in ${build.dir}" />
-            <java classname="myhealthylife.sentencegenerator.endpoint.NutritionPublisher" classpath="${build.dir}" fork="true">
+            <echo message="app start myhealthylife.nutritionservice.endpoint.NutritionPublisher in ${build.dir}" />
+            <java classname="myhealthylife.nutritionservice.endpoint.NutritionPublisher" classpath="${build.dir}" fork="true">
                 <arg value="$JAVA_OPTS  -cp" />
                 <classpath>
                     <path location="build" />
