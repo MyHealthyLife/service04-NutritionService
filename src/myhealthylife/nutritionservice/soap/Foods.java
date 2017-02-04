@@ -116,5 +116,15 @@ public interface Foods {
     @WebMethod(operationName="setFoodType")
     @WebResult(name="food") 
     public Food setFoodType(@WebParam(name="foodId") long foodId, @WebParam(name="typeId") long typeId);
+    
+    
+    /**
+     * Finds a set of foods based on a type name
+     * @param typeName The type of foods the user wants to retrieve
+     * @return A set containing all the foods having that type
+     */
+    @WebMethod(operationName="findFoodByType")
+    @WebResult(name="food") 
+    public FoodList findFoodByType(@WebParam(name="typeName") String foodType);
 
 }

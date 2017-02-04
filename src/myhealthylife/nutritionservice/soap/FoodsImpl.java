@@ -223,5 +223,35 @@ public class FoodsImpl implements Foods {
 	}
 
 
+	@Override
+	public FoodList findFoodByType(String foodType) {
+		
+		// Lists used to filter results
+		List<Food> foodList = this.readFoodList().getFood();
+		List<Food> foodListFiltered = new ArrayList<>();
+		
+		for(int i=0;i<foodList.size();i++) {
+			
+			// Gets the current food and its type
+			Food currentFood = foodList.get(i);
+			FoodType currentType = currentFood.getFoodType();
+			
+			if(currentType!=null && currentType.getCategory().equals(foodType)) {
+				
+				// Adds it to the filtered list
+				foodListFiltered.add(currentFood);
+				
+			}
+			
+		}
+		
+		// Sets the filtered list inside the return object
+		FoodList foodListObj = new FoodList();
+		foodListObj.setFood(foodListFiltered);
+		
+		return foodListObj;
+	}
+
+
 
 }
