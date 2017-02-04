@@ -25,7 +25,7 @@ public interface Foods {
 	 * @return The FoodList object, containing all the foods in the database
 	 */
 	@WebMethod(operationName="readFoodList")
-    @WebResult(name="foods") 
+    @WebResult(name="foodList") 
     public FoodList readFoodList();
 	
 	/**
@@ -103,7 +103,7 @@ public interface Foods {
      * @return A list containing the types available in the database
      */
     @WebMethod(operationName="readFoodTypeList")
-    @WebResult(name="foodTypes") 
+    @WebResult(name="foodTypeList") 
     public FoodTypeList readFoodTypeList();
     
     
@@ -124,7 +124,7 @@ public interface Foods {
      * @return A set containing all the foods having that type
      */
     @WebMethod(operationName="findFoodByType")
-    @WebResult(name="foods") 
+    @WebResult(name="foodList") 
     public FoodList findFoodByType(@WebParam(name="typeName") String foodType);
     
     
@@ -135,7 +135,7 @@ public interface Foods {
      * @return A set containing all the foods having that type
      */
     @WebMethod(operationName="findFoodByTypeFiltered")
-    @WebResult(name="foods") 
+    @WebResult(name="foodList") 
     public FoodList findFoodByTypeFiltered(@WebParam(name="typeName") String foodType, @WebParam(name="maxCal") Integer maxCal);
 
 }
