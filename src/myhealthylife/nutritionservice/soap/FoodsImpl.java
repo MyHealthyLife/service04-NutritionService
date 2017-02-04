@@ -253,5 +253,41 @@ public class FoodsImpl implements Foods {
 	}
 
 
+	@Override
+	public FoodList findFoodByTypeFiltered(String foodType, int maxCal) {
+		
+		// Lists used to filter results
+		List<Food> foodList = this.readFoodList().getFood();
+		List<Food> foodListFiltered = new ArrayList<>();
+		
+		for(int i=0;i<foodList.size();i++) {
+			
+			// Gets the current food and its type
+			Food currentFood = foodList.get(i);
+			FoodType currentType = currentFood.getFoodType();
+			
+			// Checks if the type of food corresponds to the one searched by the user
+			if(currentType!=null && currentType.getCategory().equals(foodType)) {
+				
+				// Checks if the calories are within the maximum range
+				if(currentFood.getCalories() < maxCal) {
+					
+					// Adds it to the filtered list
+					foodListFiltered.add(currentFood);
+					
+				}
+			}
+			
+		}
+		
+		// Sets the filtered list inside the return object
+		FoodList foodListObj = new FoodList();
+		foodListObj.setFood(foodListFiltered);
+		
+		return foodListObj;
+		
+	}
+
+
 
 }

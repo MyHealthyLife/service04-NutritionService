@@ -21,7 +21,7 @@ import java.util.List;
 @Table(name="Food")
 @NamedQuery(name="Food.findAll", query="SELECT f FROM Food f")
 @XmlRootElement(name="food")
-@XmlType(propOrder={"idFood", "name", "foodType"})
+@XmlType(propOrder={"idFood", "name", "calories", "foodType"})
 public class Food implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -31,6 +31,9 @@ public class Food implements Serializable {
 	
 	@Column(name="name")
 	private String name;
+	
+	@Column(name="calories")
+	private int calories;
 	
 	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="idFoodType",referencedColumnName="idFoodType",insertable=true,updatable=true)
@@ -61,6 +64,16 @@ public class Food implements Serializable {
 	}
 
 	
+	public int getCalories() {
+		return calories;
+	}
+
+
+	public void setCalories(int calories) {
+		this.calories = calories;
+	}
+
+
 	public FoodType getFoodType() {
 		return foodType;
 	}
