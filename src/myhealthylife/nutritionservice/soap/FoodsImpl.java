@@ -196,6 +196,31 @@ public class FoodsImpl implements Foods {
     	
         return foodTypes;
 	}
+	
+	
+	/**
+	 * Sets an existing type to an existing food
+	 */
+	@Override
+	public Food setFoodType(long foodId, long typeId) {
+		
+		// Gets the food to update from the database
+		Food foodToUpdate = Food.getFoodById(foodId);
+		
+		// Gets the requested food type from the database
+		FoodType sType = FoodType.getFoodTypeById(typeId);
+		
+		if(foodToUpdate!=null && sType!=null) {
+			
+			// Updates the food type and then returns it to the client
+			foodToUpdate.setFoodType(sType);
+			Food.updateFood(foodToUpdate);
+
+			return Food.getFoodById(foodId);
+		}
+		
+		return null;
+	}
 
 
 

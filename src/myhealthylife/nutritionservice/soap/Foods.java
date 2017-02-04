@@ -105,5 +105,16 @@ public interface Foods {
     @WebMethod(operationName="readFoodTypeList")
     @WebResult(name="foodTypes") 
     public FoodTypeList readFoodTypeList();
+    
+    
+    /**
+     * Sets an existing type to an existing food
+     * @param foodId The identifier of the food to which the user wants to assign an existing type
+     * @param typeId The type the user wants to assign to that specific food
+     * @return The food object just updated
+     */
+    @WebMethod(operationName="setFoodType")
+    @WebResult(name="food") 
+    public Food setFoodType(@WebParam(name="foodId") long foodId, @WebParam(name="typeId") long typeId);
 
 }
