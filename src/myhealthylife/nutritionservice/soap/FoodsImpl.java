@@ -109,6 +109,9 @@ public class FoodsImpl implements Foods {
     	if(foodToUpdate.getName()!=null) {
     		currentFood.setName(foodToUpdate.getName());
     	}
+    	if(foodToUpdate.getCalories()!=null) {
+    		currentFood.setCalories(foodToUpdate.getCalories());
+    	}
     	
     	// Update query
         Food.updateFood(currentFood);
