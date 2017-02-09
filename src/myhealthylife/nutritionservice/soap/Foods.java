@@ -137,5 +137,15 @@ public interface Foods {
     @WebMethod(operationName="findFoodByTypeFiltered")
     @WebResult(name="foodList") 
     public FoodList findFoodByTypeFiltered(@WebParam(name="typeName") String foodType, @WebParam(name="maxCal") Integer maxCal);
+    
+    
+    /**
+     * Finds a set of foods based on the maximum number of calories
+     * @param maxCal The maximum number of calories used to filter the results
+     * @return A set containing all the foods having that maximum limit of calories
+     */
+    @WebMethod(operationName="findFoodByTypeFilteredByCalories")
+    @WebResult(name="foodList") 
+    public FoodList findFoodByTypeFilteredByCalories(@WebParam(name="maxCal") Integer maxCal);
 
 }
