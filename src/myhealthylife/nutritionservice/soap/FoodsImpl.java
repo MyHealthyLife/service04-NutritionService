@@ -272,12 +272,18 @@ public class FoodsImpl implements Foods {
 			// Checks if the type of food corresponds to the one searched by the user
 			if(currentType!=null && currentType.getCategory().equals(foodType)) {
 				
-				// Checks if the calories are within the maximum range
-				if(currentFood.getCalories() < maxCal) {
-					
-					// Adds it to the filtered list
+				if(maxCal!=null) {
+				
+					// Checks if the calories are within the maximum range
+					if(currentFood.getCalories() < maxCal) {
+						
+						// Adds it to the filtered list
+						foodListFiltered.add(currentFood);
+						
+					}
+				}
+				else {
 					foodListFiltered.add(currentFood);
-					
 				}
 			}
 			

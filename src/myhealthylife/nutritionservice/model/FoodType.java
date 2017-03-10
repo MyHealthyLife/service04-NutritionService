@@ -32,16 +32,16 @@ public class FoodType implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private long idFoodType;
+	private Long idFoodType;
 	
 	@Column(name="category")
 	private String category;
 
-	public long getIdFoodType() {
+	public Long getIdFoodType() {
 		return idFoodType;
 	}
 
-	public void setIdFoodType(long idFoodType) {
+	public void setIdFoodType(Long idFoodType) {
 		this.idFoodType = idFoodType;
 	}
 

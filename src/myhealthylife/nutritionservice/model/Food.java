@@ -27,7 +27,7 @@ public class Food implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private long idFood;
+	private Long idFood;
 	
 	@Column(name="name")
 	private String name;
@@ -44,12 +44,12 @@ public class Food implements Serializable {
 	
 
 	/* GETTERS AND SETTERS */
-	public long getIdFood() {
+	public Long getIdFood() {
 		return idFood;
 	}
 
 
-	public void setIdFood(long idFood) {
+	public void setIdFood(Long idFood) {
 		this.idFood = idFood;
 	}
 
