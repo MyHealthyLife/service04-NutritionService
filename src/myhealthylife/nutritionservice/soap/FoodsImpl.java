@@ -60,11 +60,40 @@ public class FoodsImpl implements Foods {
 	@Override
 	public Food createFood(Food foodToSave) {
     	
-    	// Saves the new food
-    	Food.saveFood(foodToSave);
+		// Checks the type of the food
+    	if(foodToSave.getFoodType()!=null) {
+    		
+    		FoodType typeToSave = foodToSave.getFoodType();
+    		typeToSave.setCategory(typeToSave.getCategory().toLowerCase());
+    		
+    		long checkType = this.searchForFoodType(typeToSave.getCategory());
+    		
+    		// Creates a new food with a brand new type
+    		if(checkType==0) {
+    			
+    	    	// Saves the new food
+    	    	Food.saveFood(foodToSave);
 
-    	// Gets the food just inserted
-    	foodToSave = Food.getFoodById(foodToSave.getIdFood());
+    	    	// Gets the food just inserted
+    	    	foodToSave = Food.getFoodById(foodToSave.getIdFood());
+    	    	
+    			
+    		}
+    		else {
+    			
+    			foodToSave.setFoodType(null);
+    			
+    			// Saves the new food
+    	    	Food.saveFood(foodToSave);
+    	    	
+    	    	this.setFoodType(foodToSave.getIdFood(), checkType);
+
+    	    	// Gets the food just inserted
+    	    	foodToSave = Food.getFoodById(foodToSave.getIdFood());
+    	    	
+    		}
+    		
+    	}
     	
     	return foodToSave;
 
@@ -333,7 +362,30 @@ public class FoodsImpl implements Foods {
 		return foodListObj;
 		
 	}
+	
+	
+	
+	private long searchForFoodType(String foodTypeToSearch) {
+    	
+		// Gets all the food types
+		List<FoodType> sTypeList = FoodType.getAll();
+		
+		for(int i=0;i<sTypeList.size();i++) {
+			
+			FoodType singleType = sTypeList.get(i);
+			
+			if(singleType.getCategory()!=null && singleType.getCategory().equals(foodTypeToSearch)) {
+				
+				return singleType.getIdFoodType();
+				
+			}
+			
+		}
+		
+    	
+    	return 0;
 
+	}
 
 
 }
